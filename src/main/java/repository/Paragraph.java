@@ -6,4 +6,11 @@ public class Paragraph extends NamedObject {
     public Paragraph(String name) {
         super(name);
     }
+
+    @Override
+    public String toString() {
+        return "Paragraph{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }
