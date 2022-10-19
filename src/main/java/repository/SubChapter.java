@@ -11,9 +11,21 @@ public class SubChapter {
         this.name = name;
     }
     
-    public int addElement(Element element)
+    public int addTable(String name)
     {
-        elements.add(element);
+        elements.add(new Table(name));
+        return elements.size() - 1;
+    }
+    
+    public int addParagraph(String name)
+    {
+        elements.add(new Paragraph(name));
+        return elements.size() - 1;
+    }
+    
+    public int addImage(String name)
+    {
+        elements.add(new Image(name));
         return elements.size() - 1;
     }
     

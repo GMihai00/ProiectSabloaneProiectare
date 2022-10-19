@@ -11,9 +11,9 @@ public class Chapter {
         subChapters = new ArrayList<SubChapter>();
     }
     
-    public int addSubChapter(SubChapter subChapter)
+    public int addSubChapter(String name)
     {
-        subChapters.add(subChapter);
+        subChapters.add(new SubChapter(name));
         return subChapters.size() - 1;
     }
     

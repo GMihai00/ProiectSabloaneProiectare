@@ -15,9 +15,9 @@ public class Book{
         this.authors = new ArrayList<Author>();
     }
     
-    public int addChapter(Chapter chapter)
+    public int addChapter(String name)
     {
-        chapters.add(chapter);
+        chapters.add(new Chapter(name));
         return chapters.size() - 1;
     }
     
