@@ -1,16 +1,21 @@
 package repository;
 
-import baseTypes.NamedObject;
 
-public class Image extends NamedObject {
+public class Image extends Element{
+    String name;
     public Image(String name) {
-        super(name);
+        this.name = name;
     }
 
+    public void print() {
+        System.out.print(this);
+    }
+    
     @Override
     public String toString() {
-        return "Image{" +
-                "name='" + name + '\'' +
-                '}';
+        return "{" +
+            " name='" + name + "'" +
+            "}";
     }
+    
 }

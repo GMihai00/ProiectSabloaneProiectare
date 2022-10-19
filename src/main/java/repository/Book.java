@@ -1,43 +1,59 @@
 package repository;
 
-import baseTypes.NamedObject;
 
 import java.util.ArrayList;
 
-public class Book extends NamedObject {
-    protected ArrayList<Paragraph> paragraphs;
-    protected ArrayList<Table> tables;
-    protected ArrayList<Image> images;
+public class Book{
+    protected ArrayList<Chapter> chapters;
+    protected ArrayList<Author> authors;
+    protected TableOfContents tableOfContents;
+    String title;
 
-    public Book(String name) {
-        super(name);
-        tables = new ArrayList<Table>();
-        images = new ArrayList<Image>();
-        paragraphs = new ArrayList<Paragraph>();
+    public Book(String title) {
+        this.title = title;
+        this.chapters = new ArrayList<Chapter>();
+        this.authors = new ArrayList<Author>();
+    }
+    
+    public int addChapter(Chapter chapter)
+    {
+        chapters.add(chapter);
+        return chapters.size() - 1;
+    }
+    
+    public Chapter getChapter(int index)
+    {
+        return chapters.get(index);
     }
 
-    public void createParagraph(String name) {
-        paragraphs.add(new Paragraph(name));
+    public int addAuthor(Author author)
+    {
+        authors.add(author);
+        return authors.size() - 1;
+    }
+    
+    public Author getAuthor(int index)
+    {
+        return authors.get(index);
     }
 
-    public void createTable(String name) {
-        tables.add(new Table(name));
-    }
-
-    public void createImage(String name) {
-        images.add(new Image(name));
+    public void setTableOfContent(TableOfContents tableOfContents)
+    {
+        this.tableOfContents = tableOfContents;
     }
 
     public void print() {
         System.out.print(this);
     }
+    
     @Override
     public String toString() {
-        return "Book{" +
-                "name='" + name + '\'' +
-                ", paragraphs=" + paragraphs +
-                ", tables=" + tables +
-                ", images=" + images +
-                '}';
+        return "{" +
+            " chapters='" + chapters + "'" +
+            ", authors='" + authors + "'" +
+            ", tableOfContents='" + tableOfContents + "'" +
+            ", title='" + title + "'" +
+            "}";
     }
+    
 }

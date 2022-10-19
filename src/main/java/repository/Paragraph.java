@@ -1,16 +1,21 @@
 package repository;
+    
 
-import baseTypes.NamedObject;
-
-public class Paragraph extends NamedObject {
-    public Paragraph(String name) {
-        super(name);
+public class Paragraph extends Element{
+    String text;
+    public Paragraph(String text) {
+        this.text = text;
+    }
+    
+    public void print() {
+        System.out.print(this);
     }
 
     @Override
     public String toString() {
-        return "Paragraph{" +
-                "name='" + name + '\'' +
-                '}';
+        return "{" +
+            " text='" + text + "'" +
+            "}";
     }
+    
 }
