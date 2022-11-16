@@ -9,7 +9,7 @@ public class Table implements Element{
     String title;
     
     public void print() {
-        System.out.print(this);
+        System.out.println("Table: " + title);
     }
 
     @Override

@@ -26,4 +26,13 @@ public class Book extends Section{
     {
         return authors.get(index);
     }
+    @Override
+    public void print() {
+        System.out.println("Book:");
+        System.out.println("Authors:");
+        for (var author : authors)
+            author.print();
+        super.print();
+        
+    }
 }

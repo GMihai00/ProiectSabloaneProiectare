@@ -9,7 +9,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class Section implements Element{
     
-    private ArrayList<Element> elements;
+    protected ArrayList<Element> elements;
     String title;
     
     public Section(String title)
@@ -19,7 +19,9 @@ public class Section implements Element{
     }
     @Override
     public void print() {
-        System.out.print(this);
+        System.out.println("Section: " + title);
+        for (var element : elements)
+            element.print();
         
     }
 
@@ -40,5 +42,6 @@ public class Section implements Element{
         
         return elements.get(index);
     }
+
     
 }

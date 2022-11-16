@@ -9,4 +9,8 @@ public class Author {
     protected String name;
     protected String surName;
     
+    void print()
+    {
+        System.out.println(name + " " + surName);
+    }
 }
