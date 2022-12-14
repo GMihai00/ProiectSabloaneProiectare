@@ -1,15 +1,18 @@
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+
+import javax.crypto.SecretKey;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Section implements Element{
+public class Section implements Element, Serializable{
     
-    protected ArrayList<Element> elements;
+    public ArrayList<Element> elements;
     String title;
     
     public Section(String title)
@@ -41,6 +44,10 @@ public class Section implements Element{
     public Element get(int index) {
         
         return elements.get(index);
+    }
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitSection(this);
     }
 
     

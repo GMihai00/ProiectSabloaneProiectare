@@ -1,12 +1,14 @@
 package models;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class Paragraph implements Element{
+public class Paragraph implements Element, Serializable{
     final String title;
     String text;
     private AlignStrategy alignStrategy;
@@ -45,5 +47,10 @@ public class Paragraph implements Element{
     
     public void print() {
         alignStrategy.render(this);
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitParagraph(this);
     }
 }

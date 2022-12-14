@@ -20,5 +20,10 @@ public class AppLauncher {
         section.add(new Paragraph("Pargraph 4", "text4"));
         
         book.print();
+        
+        VisitorFactory vfactory = new VisitorFactory();
+        BookSaveVisitor bsv = (BookSaveVisitor) vfactory.createVisitor("BookSave");
+        
+        book.accept(bsv);
     }
 }

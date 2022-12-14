@@ -1,11 +1,12 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class ImageProxy implements Element{
+public class ImageProxy implements Element, Serializable{
     final String name;
     final String url;
     // final Long dimension;
@@ -42,6 +43,11 @@ public class ImageProxy implements Element{
     public Element get(int index) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitImageProxy(this);
     }
     
 }

@@ -1,5 +1,6 @@
 package models;
 
+import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
 import lombok.AllArgsConstructor;
@@ -7,7 +8,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data
-public class Image implements Element{
+public class Image implements Element, Serializable{
     final String name;
     final String url;
     private Long[][] content;
@@ -54,6 +55,10 @@ public class Image implements Element{
             ", url='" + getUrl() + "'" +
             ", content='" + getContent() + "'" +
             "}";
+    }
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitImage(this);
     }
     
 }

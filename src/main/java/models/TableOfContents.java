@@ -1,6 +1,8 @@
 package models;
 
-public class TableOfContents implements Element{
+import java.io.Serializable;
+
+public class TableOfContents implements Element, Serializable{
 
     public void print() {
         System.out.print(this);
@@ -22,5 +24,10 @@ public class TableOfContents implements Element{
     public Element get(int index) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitTableOfContents(this);
     }
 }
